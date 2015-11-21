@@ -1,0 +1,18 @@
+<h1>Welcome to Reddit Clone</h1>
+<h2>Please Sign In.</h2>
+
+<form action="<%= session_url %>" method="post">
+
+  <%= render "/shared/authenticity" %>
+  <%= render "/shared/errors" %>
+
+  <label for="email">Email:</label>
+  <input type="text" name="user[email]" value="<%=@user.email%>">
+  <br>
+
+  <label for="password">Password</label>
+  <input type="password" name="user[password]">
+  <br>
+
+  <input type="submit" value="Sign In!">
+</form>

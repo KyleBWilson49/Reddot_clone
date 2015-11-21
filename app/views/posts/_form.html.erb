@@ -1,0 +1,29 @@
+<% action = post.persisted? ? post_url(post) : sub_posts_url %>
+<% value = post.persisted? ? "PATCH" : "POST" %>
+<% button = post.persisted? ? "Edit Post" : "Create Post" %>
+
+<form action="<%=action%>" method="post">
+  <input type="hidden" name="_method" value="<%=value%>">
+
+  <%= auth_token %>
+  <%= render "/shared/errors" %>
+
+  <label for"Title">Title:</label>
+  <input type="text" name="post[title]" value="<%=post.title%>">
+  <br>
+
+  <label for"url">Url:</label>
+  <input type="text" name="post[url]" value="<%=post.url%>">
+  <br>
+
+  <label for="content">Content:</label>
+  <br>
+  <textarea name="post[content]" rows="8" cols="40"><%=post.content%></textarea>
+  <br>
+
+  <label for="subs">Subs</label>
+  <br>
+  <br>
+
+  <input type="submit" value="<%=button%>">
+</form>

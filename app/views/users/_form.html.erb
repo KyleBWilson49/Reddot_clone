@@ -1,0 +1,24 @@
+<% action = user.persisted? ? user_url(user) : user_url %>
+<% value = user.persisted? ? "PATCH" : "POST" %>
+<% button = user.persisted? ? "Edit User" : "Sign Up" %>
+
+<form action="<%=action%>" method="post">
+  <input type="hidden" name="_method" value="<%=value%>">
+
+  <%= auth_token %>
+  <%= render "/shared/errors" %>
+
+  <label for"name">Name:</label>
+  <input type="text" name="user[name]" value="<%=user.name%>">
+  <br>
+
+  <label for="email">Email:</label>
+  <input id="email" type="text" name="user[email]" value="<%=user.email%>">
+  <br>
+
+  <label for="password">Password</label>
+  <input type="password" name="user[password]">
+  <br>
+
+  <input type="submit" value="<%=button%>">
+</form>

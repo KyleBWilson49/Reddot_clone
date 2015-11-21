@@ -1,0 +1,13 @@
+<h1><%=@post.title%></h1>
+
+<p>
+  <%= @post.url %>
+</p>
+<br>
+<p>
+  <%= @post.content %>
+</p>
+
+<%= link_to "Back", sub_url(@post.sub_id) %>
+<%= link_to "Edit", edit_post_url(@post) %>
+<%= link_to "Delete", post_url(@post), method: :delete %>

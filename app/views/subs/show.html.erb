@@ -1,0 +1,23 @@
+<% if flash[:notice] %>
+  <ul>
+    <li><%= flash[:notice] %></li>
+  </ul>
+<% end %>
+
+<h1><%=@sub.title%></h1>
+<h4><%=@sub.description%></h4>
+
+<ul>
+  <% @sub.posts.each do |post| %>
+  <li><%= link_to post.title, sub_post_url(@sub, post) %>
+      posted by <%= post.author.name %>
+  </li>
+  <% end %>
+</ul>
+<br><br>
+
+<%= link_to "New Post", new_sub_post_url(@sub) %>
+
+<%= link_to "Edit", edit_sub_url(@sub) %>
+<%= link_to "Delete", sub_url(@sub), method: :delete %>
+<%= link_to "Home", subs_url %>

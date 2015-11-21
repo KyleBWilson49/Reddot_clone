@@ -1,0 +1,20 @@
+<% if flash[:notice] %>
+  <ul>
+    <li><%= flash[:notice] %></li>
+  </ul>
+<% end %>
+
+<h1>All the Subs!!!!!!!!</h1>
+
+<% @subs.each do |sub| %>
+<li>
+<%= link_to sub.title, sub_url(sub) %>
+<br>
+creator:
+<%= sub.user.name %>
+</li>
+<% end %>
+
+<br><br><br>
+
+<%= link_to "Create Sub", new_sub_url %>
